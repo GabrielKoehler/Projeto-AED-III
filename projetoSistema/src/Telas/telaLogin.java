@@ -1,4 +1,5 @@
 package Telas;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -36,7 +37,17 @@ public class telaLogin extends javax.swing.JFrame {
 	    }
 	
         }
-
+    public void buscaUsuarioCaminho(String fileName){
+        String caminho = "C:\\Users\\K. Gabriel\\Desktop\\Projeto AED-III\\projetoSistema\\Usuarios\\";
+        File arquivoUsuario =  new File(caminho+JTextFieldLogin.getText()+".txt");
+        System.out.println(arquivoUsuario); 
+        if(arquivoUsuario.exists()){
+        System.out.println("Usuario localizado");
+        }else{
+        System.out.println("Usuario nao localizado");
+        }
+    }   
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -174,7 +185,10 @@ public class telaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonEntrarActionPerformed
-        // TODO add your handling code here:
+        String caminho = "C:\\Users\\K. Gabriel\\Desktop\\Projeto AED-III\\projetoSistema\\Usuarios\\";
+        buscaUsuarioCaminho(caminho+JTextFieldLogin.getText()+".txt");
+        
+        
     }//GEN-LAST:event_JButtonEntrarActionPerformed
 
     private void JTextFieldLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldLoginActionPerformed
@@ -182,7 +196,8 @@ public class telaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_JTextFieldLoginActionPerformed
 
     private void JButtonCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonCriarActionPerformed
-       criaUsuario("C:\\Users\\K. Gabriel\\Desktop\\Projeto AED-III\\projetoSistema\\Usuarios\\"+JTextFieldLogin.getText()+".txt");
+        String caminho = "C:\\Users\\K. Gabriel\\Desktop\\Projeto AED-III\\projetoSistema\\Usuarios\\";
+        criaUsuario(caminho+JTextFieldLogin.getText()+".txt");
     }//GEN-LAST:event_JButtonCriarActionPerformed
 
     /**
